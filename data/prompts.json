@@ -1,0 +1,10 @@
+{
+    "test": {
+        "system_prompt_template": "Rate the sentiment of the following text on a scale from -10 (very negative) to +10 (very positive). Assume that you are a trading/investment expert. Be specific down to 2 decimals.\n\nBased on the user message, output a dictionary as follows:\n'id': the id, 'setiment': the sentiment score of Article",
+        "user_prompt_template": "### id\n{id}\n\n### Article\n{Article}",
+        "keys": [
+            "Article",
+            "id"
+        ]
+    }
+}

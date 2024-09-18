@@ -1,0 +1,7 @@
+{
+    "base": {
+        "type": "gpt-4o-mini",
+        "llm_model": "ChatGPT",
+        "api_key_name": "juhyung"
+    }
+}
