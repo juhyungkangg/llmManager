@@ -1,6 +1,6 @@
 {
-    "test_chain": {
-        "prompt_name": "test",
+    "base_chain": {
+        "prompt_name": "base_prompt",
         "model_name": "base",
         "output_parser": "StrOutputParser"
     }

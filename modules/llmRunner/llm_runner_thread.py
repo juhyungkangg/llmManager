@@ -1,6 +1,7 @@
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
 import pandas as pd
 import ast
+import time
 
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -96,49 +97,57 @@ class LLMRunnerThread(QThread):
 
                 total_rows = len(df)
                 for i in range(0, total_rows, self.batch_size):
-                    if not self.is_running:
-                        self.log.emit("LLM Runner stopped.")
-                        break
-                    batch = df.iloc[i:i + self.batch_size]
-                    output_path = os.path.join(self.output_dir, f"{i}_processed_{file_name}")
-                    self.log.emit(f"Processing rows {i} to {i + len(batch)}")
+                    try:
+                        if not self.is_running:
+                            self.log.emit("LLM Runner stopped.")
+                            break
+                        batch = df.iloc[i:i + self.batch_size]
+                        output_path = os.path.join(self.output_dir, f"{i}_processed_{file_name}")
+                        self.log.emit(f"Processing rows {i} to {i + len(batch)}")
 
-                    # Apply the LangChain to each row in the batch
+                        # Apply the LangChain to each row in the batch
 
-                    message_batch = []
-                    for _, row in batch.iterrows():
-                        # Make Prompt
-                        prompt = prompt_template.invoke({prompt_keys[i]: f"{row.get(prompt_keys[i])}"\
-                                                         for i in range(len(prompt_keys))})
+                        message_batch = []
+                        for _, row in batch.iterrows():
+                            # Make Prompt
+                            prompt = prompt_template.invoke({prompt_keys[i]: f"{row.get(prompt_keys[i])}"\
+                                                             for i in range(len(prompt_keys))})
 
-                        # Make messages
-                        messages = prompt.to_messages()
-                        message_batch.append(messages)
+                            # Make messages
+                            messages = prompt.to_messages()
+                            message_batch.append(messages)
 
-                    # Make chain
-                    chain = model | output_parser
+                        # Make chain
+                        chain = model | output_parser
 
-                    results = chain.batch(message_batch) # should be a list of dictionary
+                        results = chain.batch(message_batch) # should be a list of dictionary
 
-                    # Sample result
-                    '''
-                    {
-                    'id' : 'id1'
-                    'factor_id_1': 10,
-                    'factor_id_2': 20,
-                    }
-                    '''
-                    processed_results = [ast.literal_eval(result) for result in results]
+                        # Sample result
+                        '''
+                        {
+                        'id' : 'id1'
+                        'factor_id_1': 10,
+                        'factor_id_2': 20,
+                        }
+                        '''
 
-                    processed_data = pd.DataFrame(processed_results)
+                        # Save the processed data to CSV
+                        with open(f'{output_path}.txt', 'w') as file:
+                            for result in results:
+                                file.write(result + '\n')
+
+                        # processed_results = [ast.literal_eval(result) for result in results]
+                        # processed_df = pd.DataFrame(processed_results)
+                        # processed_df.to_csv(output_path, index=False)
+                        self.log.emit(f"Saved processed data to: {output_path}.txt")
+                    except Exception as e:
+                        self.log.emit(f"Error during execution: {str(e)}")
+                        self.log.emit(f"Problem with: {file_name} at {i * self.batch_size} row")
 
                     progress_percent = int((idx - 1 + (i + len(batch)) / total_rows) / total_files * 100)
                     self.progress.emit(progress_percent)
 
-                    # Save the processed data to CSV
-                    processed_df = pd.DataFrame(processed_data)
-                    processed_df.to_csv(output_path, index=False)
-                    self.log.emit(f"Saved processed data to: {output_path}")
+                    time.sleep(120)
 
             self.log.emit("LLM Runner completed successfully.")
             self.finished_signal.emit()

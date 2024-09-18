@@ -7,9 +7,9 @@ from main_window import MainWindow
 def main():
     app = QApplication(sys.argv)
 
-    # Optional: Apply global stylesheet
-    with open('resources/styles/style.qss', 'r') as f:
-        app.setStyleSheet(f.read())
+    # # Optional: Apply global stylesheet
+    # with open('resources/styles/style.qss', 'r') as f:
+    #     app.setStyleSheet(f.read())
 
     window = MainWindow()
     window.show()
