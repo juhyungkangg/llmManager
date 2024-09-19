@@ -34,8 +34,8 @@ class PromptManagerWidget(AbstractWidget):
 
         # Prompt Details
         self.details_label = QLabel("Prompt Details:")
-        self.details_display = QLabel("")
-        self.details_display.setWordWrap(True)
+        self.details_display = QTextEdit()
+        self.details_display.setReadOnly(True)
         layout.addWidget(self.details_label)
         layout.addWidget(self.details_display)
 

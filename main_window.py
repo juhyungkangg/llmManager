@@ -78,8 +78,8 @@ class MainWindow(QMainWindow):
         self.setCentralWidget(self.tab_widget)
 
         # Initialize modules
-        self.decompressor = DecompressorWidget()
-        self.text_viewer = TextViewerWidget()
+        # self.decompressor = DecompressorWidget()
+        # self.text_viewer = TextViewerWidget()
         self.prompt_manager = PromptManagerWidget()
         self.langchain_manager = LangchainManagerWidget()
         self.llm_runner = LLMRunnerWidget()
@@ -87,8 +87,8 @@ class MainWindow(QMainWindow):
         self.api_key_management = ApiKeyManagerWidget()
 
         # Add modules as tabs
-        self.tab_widget.addTab(self.decompressor, "Decompressor")
-        self.tab_widget.addTab(self.text_viewer, "Text Viewer")
+        # self.tab_widget.addTab(self.decompressor, "Decompressor")
+        # self.tab_widget.addTab(self.text_viewer, "Text Viewer")
         self.tab_widget.addTab(self.prompt_manager, "Prompt Manager")
         self.tab_widget.addTab(self.model_manager, "Model Manager")
         self.tab_widget.addTab(self.langchain_manager, "Langchain Manager")
@@ -107,7 +107,7 @@ class MainWindow(QMainWindow):
             # Implement file handling logic based on active tab
             current_tab = self.tab_widget.currentWidget()
             if isinstance(current_tab, DecompressorWidget):
-                current_tab.file_path.setText(file_path)
+                current_tab.dir_path.setText(file_path)
             elif isinstance(current_tab, TextViewerWidget):
                 current_tab.load_file(file_path)
             # Add similar conditions for other modules if necessary
