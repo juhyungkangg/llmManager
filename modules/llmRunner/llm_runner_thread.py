@@ -72,15 +72,24 @@ class LLMRunnerThread(QThread):
                     logging.info("LLM Runner stopped by user.")
                     break
 
-                input_path = os.path.join(self.input_dir, file_name)
+                # input_path = os.path.join(self.input_dir, file_name)
+                input_path = self.input_dir + '/' + file_name
                 self.log.emit(f"Processing file: {input_path}")
                 logging.info(f"Processing file: {input_path}")
 
                 try:
                     # Read CSV in chunks
                     chunksize = self.batch_size  # Define chunk size
-                    csv_iterator = pd.read_csv(input_path, chunksize=chunksize)
-                    total_rows = sum(1 for _ in open(input_path)) - 1
+                    csv_iterator = pd.read_csv(
+                        input_path,
+                        chunksize=chunksize,
+                        encoding='utf-8',
+                        engine='python',  # Switch to Python engine
+                        on_bad_lines='skip'  # Skip lines with errors
+                    )
+
+                    # Count total rows
+                    total_rows = sum(1 for _ in open(input_path, encoding='utf-8')) - 1
                 except Exception as e:
                     self.log.emit(f"Failed to read {input_path}: {str(e)}")
                     logging.error(f"Failed to read {input_path}: {str(e)}")
@@ -111,7 +120,7 @@ class LLMRunnerThread(QThread):
 
                     # Save processed results to output directory
                     output_df = pd.DataFrame(results)
-                    output_file_name = os.path.splitext(file_name)[0] + f'_{chunk_number}' + '_processed.csv'
+                    output_file_name = os.path.splitext(file_name)[0] + f'_{chunk_number:05}' + '_processed.csv'
                     output_path = os.path.join(self.output_dir, output_file_name)
 
                     try:
