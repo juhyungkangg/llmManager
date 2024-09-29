@@ -3,5 +3,15 @@
         "prompt_name": "base_prompt",
         "model_name": "base",
         "output_parser": "StrOutputParser"
+    },
+    "reddit_comments_chain": {
+        "prompt_name": "reddit_comments",
+        "model_name": "base",
+        "output_parser": "StrOutputParser"
+    },
+    "reddit_submissions": {
+        "prompt_name": "reddit_submissions",
+        "model_name": "base",
+        "output_parser": "StrOutputParser"
     }
 }

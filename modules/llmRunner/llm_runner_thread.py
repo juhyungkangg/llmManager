@@ -2,11 +2,25 @@ import os
 import json
 import time
 import logging
+
+# Disable all loggin messages
+logging.disable(logging.WARNING)
+
 import pandas as pd
 from PyQt6.QtCore import Qt, QThread, pyqtSignal
 from cryptography.fernet import Fernet
 from typing import List, Dict, Any
 import ast
+import csv
+import sys
+
+# Step 1: Increase the field size limit to handle large fields in the CSV file
+max_int = sys.maxsize
+try:
+    csv.field_size_limit(max_int)
+except OverflowError:
+    # Fallback if sys.maxsize is too large
+    csv.field_size_limit(2147483647)  # 2^31 - 1
 
 from langchain_openai import ChatOpenAI
 from langchain_core.messages import HumanMessage, SystemMessage
@@ -85,11 +99,13 @@ class LLMRunnerThread(QThread):
                         chunksize=chunksize,
                         encoding='utf-8',
                         engine='python',  # Switch to Python engine
-                        on_bad_lines='skip'  # Skip lines with errors
+                        # on_bad_lines='skip'  # Skip lines with errors
                     )
 
                     # Count total rows
-                    total_rows = sum(1 for _ in open(input_path, encoding='utf-8')) - 1
+                    total_rows = 0
+                    for chunk in pd.read_csv(input_path, chunksize=1000):
+                        total_rows += chunk.shape[0]
                 except Exception as e:
                     self.log.emit(f"Failed to read {input_path}: {str(e)}")
                     logging.error(f"Failed to read {input_path}: {str(e)}")
@@ -107,6 +123,14 @@ class LLMRunnerThread(QThread):
                     logging.info(f"Processing rows {chunk_number * chunksize} to {(chunk_number + 1) * chunksize}")
                     chunk_number += 1
 
+                    # Save processed results to output directory
+                    output_file_name = os.path.splitext(file_name)[0] + f'_{chunk_number:05d}' + '_processed.csv'
+                    output_path = os.path.join(self.output_dir, output_file_name)
+
+                    # Check if the file already exists and pass the chunk
+                    if os.path.exists(output_path):
+                        self.log.emit(f"Skipped {output_path}. Already processed.")
+                        continue
                     # Prepare messages for the batch
                     message_batch = self.prepare_message_batch(chunk, prompt_template)
 

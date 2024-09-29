@@ -4,11 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="54ddbe5e-6a89-4126-bec8-3ce8480c53f3" name="Changes" comment="Sep 18">
-      <change beforePath="$PROJECT_DIR$/.idea/llmManager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/llmManager.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="54ddbe5e-6a89-4126-bec8-3ce8480c53f3" name="Changes" comment="Windows version">
+      <change afterPath="$PROJECT_DIR$/csv_diet.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/date_chop_out.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/news_splitter.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/reddit_keyword_cut.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/chains.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/chains.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/data/prompts.json" beforeDir="false" afterPath="$PROJECT_DIR$/data/prompts.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/modules/llmRunner/llm_runner.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/llmRunner/llm_runner.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/modules/llmRunner/llm_runner_thread.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/llmRunner/llm_runner_thread.py" afterDir="false" />
+    </list>
+    <list id="fb743f34-550f-4d1a-a140-c1b520ceede7" name="Changes by juhyung" comment="">
       <change beforePath="$PROJECT_DIR$/modules/llmRunner/llm_runner_thread.py" beforeDir="false" afterPath="$PROJECT_DIR$/modules/llmRunner/llm_runner_thread.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -30,12 +37,33 @@
     &quot;assignee&quot;: &quot;juhyungkangg&quot;
   }
 }</component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/juhyungkangg/llmManager.git",
-    "accountId": "b8f4167a-3e6e-4191-8db5-8ee250bec969"
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/juhyungkangg/llmManager.git&quot;,
+    &quot;accountId&quot;: &quot;b8f4167a-3e6e-4191-8db5-8ee250bec969&quot;
   }
-}]]></component>
+}</component>
+  <component name="LineStatusTrackerManager">
+    <file path="$PROJECT_DIR$/modules/llmRunner/llm_runner_thread.py">
+      <ranges>
+        <range start1="4" end1="4" start2="4" end2="8" changelist="54ddbe5e-6a89-4126-bec8-3ce8480c53f3" />
+        <range start1="9" end1="9" start2="13" end2="23" changelist="54ddbe5e-6a89-4126-bec8-3ce8480c53f3" />
+        <range start1="87" end1="88" start2="101" end2="102" changelist="54ddbe5e-6a89-4126-bec8-3ce8480c53f3" />
+        <range start1="91" end1="92" start2="105" end2="108" changelist="54ddbe5e-6a89-4126-bec8-3ce8480c53f3" />
+        <range start1="109" end1="109" start2="125" end2="133" changelist="54ddbe5e-6a89-4126-bec8-3ce8480c53f3" />
+        <range start1="111" end1="111" start2="135" end2="137" changelist="fb743f34-550f-4d1a-a140-c1b520ceede7" />
+        <range start1="113" end1="114" start2="139" end2="140" changelist="fb743f34-550f-4d1a-a140-c1b520ceede7" />
+        <range start1="120" end1="124" start2="146" end2="192" changelist="fb743f34-550f-4d1a-a140-c1b520ceede7" />
+        <range start1="126" end1="127" start2="194" end2="197" changelist="fb743f34-550f-4d1a-a140-c1b520ceede7" />
+        <range start1="210" end1="211" start2="280" end2="281" changelist="fb743f34-550f-4d1a-a140-c1b520ceede7" />
+        <range start1="216" end1="217" start2="286" end2="333" changelist="fb743f34-550f-4d1a-a140-c1b520ceede7" />
+        <range start1="225" end1="226" start2="341" end2="355" changelist="fb743f34-550f-4d1a-a140-c1b520ceede7" />
+        <range start1="228" end1="229" start2="357" end2="358" changelist="fb743f34-550f-4d1a-a140-c1b520ceede7" />
+        <range start1="234" end1="238" start2="363" end2="377" changelist="fb743f34-550f-4d1a-a140-c1b520ceede7" />
+        <range start1="239" end1="256" start2="378" end2="391" changelist="fb743f34-550f-4d1a-a140-c1b520ceede7" />
+      </ranges>
+    </file>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 1
 }</component>
@@ -44,23 +72,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.llm_runner.executor&quot;: &quot;Run&quot;,
-    &quot;Python.llm_runner_thread.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.chunk_size.executor": "Run",
+    "Python.csv_diet.executor": "Run",
+    "Python.date_chop_out.executor": "Run",
+    "Python.line_counter.executor": "Run",
+    "Python.llm_runner.executor": "Run",
+    "Python.llm_runner_thread.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.merge_files.executor": "Run",
+    "Python.news_splitter.executor": "Run",
+    "Python.save_large_dict_list.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RunManager">
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="llmManager" />
@@ -103,7 +138,8 @@
       <option name="presentableId" value="Default" />
       <updated>1726632740855</updated>
       <workItem from="1726632741889" duration="25662000" />
-      <workItem from="1726764467628" duration="9865000" />
+      <workItem from="1726764467628" duration="16145000" />
+      <workItem from="1726806502705" duration="53249000" />
     </task>
     <task id="LOCAL-00001" summary="Sep 18">
       <option name="closed" value="true" />
@@ -129,7 +165,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726715452137</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Windows version">
+      <option name="closed" value="true" />
+      <created>1726798847647</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1726798847647</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -137,12 +181,20 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Sep 18" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sep 18" />
+    <MESSAGE value="Windows version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Windows version" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/llmManager$merge_files.coverage" NAME="merge_files Coverage Results" MODIFIED="1726801951338" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/llmManager$llm_runner.coverage" NAME="llm_runner Coverage Results" MODIFIED="1726773392044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/llmRunner" />
-    <SUITE FILE_PATH="coverage/llmManager$main.coverage" NAME="main Coverage Results" MODIFIED="1726776762729" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
-    <SUITE FILE_PATH="coverage/llmManager$test.coverage" NAME="test Coverage Results" MODIFIED="1726773476707" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/llmManager$date_chop_out.coverage" NAME="date_chop_out Coverage Results" MODIFIED="1726881091787" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/llmManager$main.coverage" NAME="main Coverage Results" MODIFIED="1727433511259" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/llmManager$chunk_size.coverage" NAME="chunk_size Coverage Results" MODIFIED="1726802876938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/llmManager$save_large_dict_list.coverage" NAME="save_large_dict_list Coverage Results" MODIFIED="1726805854317" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/llmManager$news_splitter.coverage" NAME="news_splitter Coverage Results" MODIFIED="1727338769983" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/llmManager$test.coverage" NAME="test Coverage Results" MODIFIED="1726980474210" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/llmManager$llm_runner_thread.coverage" NAME="llm_runner_thread Coverage Results" MODIFIED="1726772344241" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/modules/llmRunner" />
+    <SUITE FILE_PATH="coverage/llmManager$csv_diet.coverage" NAME="csv_diet Coverage Results" MODIFIED="1726969959218" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/llmManager$line_counter.coverage" NAME="line_counter Coverage Results" MODIFIED="1727322124515" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
